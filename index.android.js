@@ -11,22 +11,25 @@ import {
   Text,
   View
 } from 'react-native';
-
+  import { Container, Content, Form, Item, Input, Label,Card, CardItem, Body,Drawer  } from 'native-base';
+  import SideBar from './yourPathToSideBar';
 export default class TestDemo extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+closeDrawer = () => {
+        this._drawer._root.close()
+      };
+      openDrawer = () => {
+        this._drawer._root.open()
+      };
+        return (
+            <Drawer
+              ref={(ref) => { this._drawer = ref; }}
+              content={<SideBar navigator={this._navigator} />}
+              onClose={() => this.closeDrawer()}
+            >
+            // Main View
+          </Drawer>
+
     );
   }
 }
